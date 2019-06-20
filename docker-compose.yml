@@ -7,3 +7,15 @@ services:
       - 41240:8080
     volumes:
       - $PWD/crossbar/:/node
+  nats:
+    image: nats
+    ports:
+      - 8222:8222
+      - 4222:4222
+      - 6222:6222
+  rabbitmq:
+    image: rabbitmq
+    ports:
+      - 8222:8222
+      - 4222:4222
+      - 6222:6222

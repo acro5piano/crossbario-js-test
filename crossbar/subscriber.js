@@ -4,17 +4,16 @@ async function main() {
   const connection = new autobahn.Connection({ url: 'ws://127.0.0.1:41240/ws', realm: 'realm1' })
 
   connection.onopen = session => {
-    session.publish('com.myapp.hello', ['Hello, world!'])
+    session.subscribe('com.myapp.hello', args => {
+      console.log('Event:', args[0])
+    })
 
-    session.call('com.myapp.add2', [2, 3]).then(function(res) {
-      console.log('Result:', res)
+    session.register('com.myapp.add2', function add2(args) {
+      return args[0] + args[1]
     })
   }
 
   await connection.open()
-  setTimeout(() => {
-    connection.close()
-  }, 1000)
 }
 
 main()
