@@ -6,8 +6,7 @@
   "author": "gosho-kazuya <ketsume0211@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "concurrently 'node src/publisher.js'",
-    "dev": "nodemon --exec yarn run start"
+    "crossbar": "nodemon crossbar/publisher.js"
   },
   "devDependencies": {
     "concurrently": "^4.1.0",
