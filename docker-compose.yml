@@ -1,0 +1,9 @@
+---
+version: '3'
+services:
+  crossbar:
+    image: crossbario/crossbar
+    ports:
+      - 41240:8080
+    volumes:
+      - $PWD:/node
